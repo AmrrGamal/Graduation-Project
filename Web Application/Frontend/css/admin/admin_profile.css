@@ -1,0 +1,250 @@
+
+        .navbar {
+            background: transparent;
+            border-bottom: 1px solid rgba(128, 208, 199, 0.35);
+            z-index: 9;
+        }
+
+        .navbar.scrolled {
+            background: #80d0c7;
+        }
+
+        .navbar-brand {
+            font-size: var(--h3-font-size);
+            font-weight: var(--font-weight-bold);
+            color: var(--white-color);
+        }
+
+        .navbar-brand span {
+            font-family: var(--title-font-family);
+        }
+
+        .navbar-brand img {
+            margin-right: 8px;
+        }
+
+        .nav-link {
+            color: var(--white-color) !important;
+            font-family: var(--title-font-family);
+            font-size: var(--menu-font-size);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px;
+            border-radius: var(--border-radius-large);
+            margin: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--white-color) !important;
+        }
+
+        .navbar-nav .nav-link.active:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-icon {
+            background: var(--white-color);
+            border-radius: var(--border-radius-large);
+            color: var(--primary-color);
+            font-size: var(--h5-font-size);
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .navbar-icon:hover {
+            background: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .logout-btn {
+            background: var(--white-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--border-radius-large);
+            font-weight: var(--font-weight-medium);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .logout-btn:hover {
+            background: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .site-footer {
+            background-color: #F8FAFC;
+            color: #13547a;
+            padding: 80px 0 40px;
+            position: relative;
+            border-bottom: 10px solid #80d0c7;
+        }
+
+        .site-footer::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 200px 200px;
+            border-color: transparent transparent #80d0c7 transparent;
+            pointer-events: none;
+        }
+
+        .site-footer .navbar-brand {
+            color: #13547a;
+        }
+
+        .site-footer p {
+            color: #13547a !important;
+        }
+
+        .site-footer .text-white {
+            color: #13547a !important;
+        }
+
+        .site-footer-title {
+            color: #13547a;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .site-footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .site-footer-link-item {
+            margin-bottom: 0.75rem;
+        }
+
+        .site-footer-link {
+            color: #80d0c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .site-footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links a {
+            color: #80d0c7;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright-text {
+            color: #13547a;
+            font-size: 0.9rem;
+        }
+
+        .copyright-text a {
+            color: #80d0c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .copyright-text a:hover {
+            color: var(--primary-color);
+        }
+
+        .border-top {
+            border-color: rgba(19, 84, 122, 0.2) !important;
+        }
+
+        .site-footer .col-lg-2 {
+            padding-top: 4.5rem;
+        }
+
+        .site-footer-title {
+            margin-top: 0;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 300px;
+            position: relative;
+        }
+
+        /* Profile Styles */
+        .container-wrapper {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-pic-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic-preview {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px 0;
+            border: 3px solid #80d0c7;
+        }
+
+        .form-section {
+            padding: 20px;
+        }
+
+        .form-label {
+            color: #13547a;
+            font-weight: 600;
+        }
+
+        .form-control {
+            border: 1px solid #80d0c7;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: white !important;
+        }
+
+        .form-control:focus {
+            border-color: #13547a;
+            box-shadow: 0 0 0 0.2rem rgba(19, 84, 122, 0.25);
+            background-color: white !important;
+        }
+
+        .custom-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .custom-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }

@@ -1,0 +1,49 @@
+.password-requirements {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.password-requirements li {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.requirement-not-met {
+    color: #dc3545;
+}
+
+.requirement-met {
+    color: #28a745;
+}
+
+.requirement-icon {
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+.requirement-text {
+    flex: 1;
+}
+
+/* Add animation for requirement changes */
+@keyframes requirementMet {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.requirement-met {
+    animation: requirementMet 0.3s ease;
+}
