@@ -1,4 +1,4 @@
-![1004_jpg rf 7d60110f5fb8330418d02fdfe65c20de](https://github.com/user-attachments/assets/6685e2e9-c765-4df4-9b2a-d1b367cb9dc4)![1004_jpg rf 7d60110f5fb8330418d02fdfe65c20de](https://github.com/user-attachments/assets/a8bd31df-e4e5-493b-9728-b9c6d5b35437)# 🦷 The Impact of Artificial Intelligence in Dentistry
+# 🦷 The Impact of Artificial Intelligence in Dentistry
 
 This graduation project explores how **Artificial Intelligence (AI)** can be applied to dental X-ray images to assist in diagnosis and patient profiling. The system processes input X-ray images using four specialized deep learning models, producing predictions related to **gender**, **age**, **dental diseases**, and **tooth identification & numbering**.
 
@@ -50,23 +50,19 @@ Output:
 
 Gender: Male
 
-Age: Adult
-
-Disease Detection: Image with segmented disease areas
+Age Group: Adult
 
 Total Teeth: 32
 
-12 Incisors
+  12 Incisors
+  
+  4 Canines
+  
+  6 Premolars
+  
+  10 Molars
 
-4 Canines
-
-6 Premolars
-
-10 Molars
-
-yaml
-Copy
-Edit
+Disease Detection: Image with segmented disease areas 
 
 ---
 
@@ -89,26 +85,6 @@ Edit
 - **React.js** (frontend)
 - **.NET Core** (backend REST API)
 
----
-
-## 📁 Project Structure
-
-AI-Dentistry-Project/
-├── models/
-│ ├── gender/
-│ ├── age/
-│ ├── disease/
-│ └── tooth_detection/
-├── backend/
-│ └── .NET Web API
-├── frontend/
-│ └── React App
-├── sample_xrays/
-├── README.md
-
-yaml
-Copy
-Edit
 
 ---
 
@@ -125,7 +101,7 @@ Edit
 
 - Expand the dataset for higher model accuracy
 - Add prediction confidence levels
-- Integrate patient history for better diagnosis
+- Integrate in Mobile app
 - Deploy on cloud for real-time access
 
 ---
