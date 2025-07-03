@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Character encoding for proper text rendering -->
+        <meta charset="utf-8">
+        <!-- Viewport settings for responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Meta tags for SEO -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+       <!-- Page title -->
+       <title>Tooth - Predict Teeth</title>
+
+       <!-- Favicon for browser tab -->
+       <link rel="icon" href="../css/images/tooth-cleaning.png" type="">
+
+        <!-- CSS FILES -->
+        <!-- Google Fonts - Montserrat and Open Sans -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Bootstrap Icons -->
+        <link href="../css/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Custom stylesheet -->
+        <link href="../css/templatemo-topic-listing.css" rel="stylesheet">
+        <link href="../css/newstyle.css" rel="stylesheet">
+
+
+    </head>
+    <body id="top">
+        <main>
+            <!-- Main navigation bar -->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <!-- Brand/logo -->
+                    <a class="navbar-brand" href="index_student.html">
+                        <img src="../css/images/tooth-cleaning.png" width="28" height="28"
+                            class="d-inline-block align-text-top">
+                        <span>Aidentify</span>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="subscribe_student.html">Subscribe</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="quizzes.html">Quizzes</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Predtiction</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item active" href="predict_age.html">Predict Age</a>
+                                    </li>
+
+                                    <li >
+                                        <a class="dropdown-item active" href="predict_Disease.html">Predict Disease</a>
+                                    </li>
+
+                                    <li >
+                                        <a class="dropdown-item active" href="predict_gender.html">Predict Gender</a>
+                                    </li>
+
+                                    <li >
+                                        <a class="dropdown-item active" href="predict_Teeth.html">Predict Teeth</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- Desktop user icon and logout -->
+                        <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-2">
+                            <a href="student_Profile.html" class="navbar-icon bi-person smoothscroll"></a>
+                            <img src="../css/images/logout.png" width="28" height="28" id="logoutBtn" style="cursor: pointer;">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+
+           <!-- Page header with breadcrumbs and title -->
+           <header class="site-header d-flex flex-column justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-5 col-12 mb-5">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index_student.html">Homepage</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Predict Teeth</li>
+                                </ol>
+                            </nav>
+                            <h2 class="text-white">Predict Teeth</h2>
+                        </div>
+                        <div class="col-lg-5 col-12">
+                            <div class="topics-detail-block bg-white shadow-lg">
+                                <img src="../css/images/models/groupOfTeeth.jpg" class="topics-detail-block-image img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            
+            <section class="section-padding section-bg">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <h4 class="mb-4 pb-2">Upload Your X-ray Here To Predict Teeth </h4>
+                        <div class="col-lg-5 col-12">
+                            <img id="uploadedImage" src="../css/images/models/dental-background.jpg" class="newsletter-image img-fluid" alt="">
+                        </div>
+                        <div class="col-lg-5 col-12 subscribe-form-wrap d-flex flex-column align-items-start">
+                            <form class="custom-form subscribe-form" id="TeethForm" method="post" role="form">
+                                <br>
+                                <div class="col-lg-9 col-12 d-flex align-items-center">
+                                    <img src="../css/images/image_attach.png" width="30" height="30" alt="Attach Icon">
+                                    <span class="mb-0 ms-2">Upload</span>
+                                    <label for="upload" class="ms-3 mb-0">
+                                        <input type="file" name="upload" id="upload" onchange="updateImage(event)">
+                                    </label>
+                                </div>
+                                <br>
+                                <div class="col-lg-12 col-12">
+                                    <button type="submit" class="form-control"> Send </button>
+                                </div>
+                            </form>
+                            <br>
+                           <span class="ms-2" id="result">result</span>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Brand Column -->
+                    <div class="col-lg-4 col-md-6">
+                        <a class="navbar-brand mb-4" href="index_admin.html">
+                            <img src="../css/images/tooth-cleaning.png" width="32" height="32"
+                                class="d-inline-block align-text-top">
+                            <span class="ms-2">Aidentify</span>
+                        </a>
+                        <p class="text-white mb-4">Empowering dental professionals with AI-driven solutions for better
+                            patient care and education.</p>
+                        <div class="social-links">
+                            <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6">
+                        <h6 class="site-footer-title mb-3">Quick Links</h6>
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="index_student.html" class="site-footer-link">Home</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="subscribe_student.html" class="site-footer-link">subscribe</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="quizzes.html" class="site-footer-link">Quizzes</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="predict_age.html" class="site-footer-link">Predict Age</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="predict_Disease.html" class="site-footer-link">Predict Disease</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="predict_gender.html" class="site-footer-link">Predict Gender</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="predict_Teeth.html" class="site-footer-link">Predict Teeth</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Resources -->
+                    <div class="col-lg-2 col-md-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">About Us</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Documentation</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Support</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">FAQs</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Information Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <h6 class="site-footer-title mb-3">For More Information :</h6>
+                        <p class="text-white d-flex">
+                            <a href="../contact.html" class="site-footer-link">
+                                Contact Us Here
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Copyright Bar -->
+                <div class="row mt-5 pt-4 border-top">
+                    <div class="col-lg-6 col-12">
+                        <p class="copyright-text">Copyright ©2025 Aidentify. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/jquery.sticky.js"></script>
+        <script src="../js/click-scroll.js"></script>
+        <script src="../js/custom.js"></script>
+        <script src="../js/Student/predict_teeth_js.js"></script>
+    </body>
+</html>

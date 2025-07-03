@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Aidentify - Login</title>
+
+  <!-- favicon -->
+  <link rel="icon" href="css/images/tooth-cleaning.png" type="image/png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet" />
+
+  <!-- CSS Files -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/bootstrap-icons.css" rel="stylesheet" />
+  <link href="css/templatemo-topic-listing.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+  <link href="css/loginCss.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="form-header">
+      <h2>Welcome Back</h2>
+    </div>
+    <div class="form-content">
+      <div class="error-message" id="errorMessage" style="display: none;"></div>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-field">
+            <input type="password" id="password" required />
+            <i class="bx bx-hide eye-icon" id="togglePassword"></i>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">Login</button>
+      </form>
+      <div class="form-links">
+        <a href="#" class="forgot-pass">Forgot password?</a>
+        <br /><br />
+        <span>Don't have an account?</span>
+        <a href="register.html">Create an account here</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/custom.js"></script>
+
+  <script type="module">
+    import AuthService from './js/api/AuthService.js';
+
+    const authService = new AuthService();
+
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      this.classList.toggle('bx-hide');
+      this.classList.toggle('bx-show');
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+      const errorDiv = document.getElementById('errorMessage');
+      const submitButton = document.querySelector('.submit-btn');
+
+      if (!username || !password) {
+        showError('Please fill in all fields');
+        return;
+      }
+
+      try {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Logging in...';
+
+        const response = await authService.login(username, password);
+        console.log('Login successful:', response);
+
+        const userData = JSON.parse(localStorage.getItem('user'));
+
+        if (!userData || !userData.roles || userData.roles.length === 0) {
+          throw new Error('No roles assigned to user');
+        }
+
+       const userRole = userData.roles[0].trim().toLowerCase();
+
+        switch (userRole) {
+          case 'admin':
+            window.location.href = 'Admin/index_admin.html';
+            break;
+          case 'doctor':
+            window.location.href = 'Doctor/index_doctor.html';
+            break;
+          case 'student':
+            window.location.href = 'Student/index_student.html';
+            break;
+          default:
+            throw new Error('Unknown role');
+        }
+      } catch (error) {
+        console.error('Login error:', error);
+        showError(error.message || 'Login failed. Please try again.');
+        submitButton.disabled = false;
+        submitButton.textContent = 'Login';
+      }
+    });
+
+    function showError(message) {
+      const errorDiv = document.getElementById('errorMessage');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>

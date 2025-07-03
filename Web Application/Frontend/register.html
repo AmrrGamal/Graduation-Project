@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aidentify - Signup</title>
+    <!--favicon -->
+    <link rel="icon" href="images/tooth-cleaning.png" type="">
+
+    <!-- CSS FILES -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+      <link href="css/register.css" rel="stylesheet">
+   
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="form-header">
+            <h2 style="color: white;">Signup</h2>
+        </div>
+        <div class="form-content">
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+
+            <form id="registerForm">
+                <div class="role-selector">
+                    <div class="role-option" data-role="student">Student</div>
+                    <div class="role-option" data-role="doctor">Doctor</div>
+                    <div class="role-option" data-role="admin">Admin</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-field">
+                        <input type="password" id="password" name="password" required>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+                    <small class="password-requirements">
+                        Password must:
+                        <ul>
+                            <li>Be at least 6 characters long</li>
+                            <li>Contain at least one uppercase letter</li>
+                            <li>Contain at least one lowercase letter</li>
+                            <li>Contain at least one number</li>
+                            <li>Contain at least one special character (!@#$%^&* etc.)</li>
+                        </ul>
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-field">
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+                </div>
+
+                <!-- Student-specific fields -->
+                <div class="role-specific-fields" id="studentFields">
+                    <div class="form-group">
+                        <label for="university">University</label>
+                        <input type="text" id="university" name="university">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="level">Level</label>
+                        <input type="number" id="level" name="level" min="1" max="6">
+                    </div>
+                </div>
+
+                <!-- Doctor-specific fields -->
+                <div class="role-specific-fields" id="doctorFields">
+                    <div class="form-group">
+                        <label for="clinicName">Clinic Name</label>
+                        <input type="text" id="clinicName" name="clinicName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialization">Specialization</label>
+                        <input type="text" id="specialization" name="specialization">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+
+            <div class="form-links">
+                <span>Already have an account?</span>
+                <a href="login.html">Login here</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/custom.js"></script>
+
+     <script type="module">
+        import AuthService from './js/api/AuthService.js';
+
+        const authService = new AuthService();
+
+        // 👁️ Toggle password visibility
+        document.querySelectorAll('.eye-icon').forEach(icon => {
+            icon.addEventListener('click', function () {
+                const passwordInput = this.previousElementSibling;
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.classList.toggle('bx-hide');
+                this.classList.toggle('bx-show');
+            });
+        });
+
+        // 👤 Role selection logic
+        const roleOptions = document.querySelectorAll('.role-option');
+        const studentFields = document.getElementById('studentFields');
+        const doctorFields = document.getElementById('doctorFields');
+
+        roleOptions.forEach(option => {
+            option.addEventListener('click', function () {
+                roleOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+
+                const role = this.dataset.role;
+                studentFields.style.display = role === 'student' ? 'block' : 'none';
+                doctorFields.style.display = role === 'doctor' ? 'block' : 'none';
+            });
+        });
+
+        // 📨 Handle form submission
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const selectedRole = document.querySelector('.role-option.selected');
+            if (!selectedRole) return showError('Please select a role');
+
+            const role = selectedRole.dataset.role;
+
+            const formData = {
+                firstName: document.getElementById('firstName').value.trim(),
+                lastName: document.getElementById('lastName').value.trim(),
+                username: document.getElementById('username').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                password: document.getElementById('password').value,
+                confirmPassword: document.getElementById('confirmPassword').value
+            };
+
+            if (formData.password !== formData.confirmPassword) {
+                return showError('Passwords do not match');
+            }
+
+            // Add role-specific data
+            if (role === 'student') {
+                formData.university = document.getElementById('university').value.trim();
+                formData.level = document.getElementById('level').value;
+            } else if (role === 'doctor') {
+                formData.clinicName = document.getElementById('clinicName').value.trim();
+            }
+
+            const submitButton = document.querySelector('.submit-btn');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Creating Account...';
+
+            try {
+                let response;
+                if (role === 'student') {
+                    response = await authService.registerStudent(formData);
+                } else if (role === 'doctor') {
+                    response = await authService.registerDoctor(formData);
+                } else if (role === 'admin') {
+                    response = await authService.registerAdmin(formData);
+                } else {
+                    throw new Error('Invalid role selected');
+                }
+
+                showSuccess('Account created successfully! Redirecting...');
+                setTimeout(() => window.location.href = 'login.html', 2000);
+            } catch (error) {
+                showError(error.message || 'Registration failed. Please try again.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Create Account';
+            }
+        });
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
