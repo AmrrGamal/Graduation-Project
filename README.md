@@ -39,18 +39,20 @@ Given a dental X-ray image as input, the system provides:
 
 ---
 
-## 🧪 Example Output
+## 🧪 Example of Input and Output
 
-Input:
+Example of Input:
 ![1004_jpg rf 7d60110f5fb8330418d02fdfe65c20de](https://github.com/user-attachments/assets/0c2e7681-8e5c-42a6-b994-e7a926c558a2)
 
 
 
-Output:
+Example of Output:
 
-Gender: Male
+Gender: Male or Female
 
-Age Group: Adult
+Age Group: Adult or Child
+
+Disease Detection: Image with segmented disease areas 
 
 Total Teeth: 32
 
@@ -62,7 +64,6 @@ Total Teeth: 32
   
   10 Molars
 
-Disease Detection: Image with segmented disease areas 
 
 ---
 
