@@ -1,0 +1,6 @@
+@AIDentify_HostAddress = http://localhost:5064
+
+GET {{AIDentify_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
