@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Tooth</title>
+    <link rel="icon" href="../css/images/tooth-cleaning.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/templatemo-topic-listing.css" rel="stylesheet">
+    <link href="../css/doctorcss.css" rel="stylesheet">
+
+<script src="../js/api/index_doctor.js"></script>
+
+</head>
+
+<body id="top">
+<main>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index_doctor.html">
+                <img src="../css/images/tooth-cleaning.png" width="28" height="28" class="d-inline-block align-text-top">
+                <span>Aidentify</span>
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="subscribe_doctor.html">subscribe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="managePatients.html">patients</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Prediction</a>
+                        <ul class="dropdown-menu dropdown-menu-light">
+                            <li><a class="dropdown-item" href="predict_age.html">Predict Age</a></li>
+                            <li><a class="dropdown-item" href="predict_Disease.html">Predict Disease</a></li>
+                            <li><a class="dropdown-item" href="predict_gender.html">Predict Gender</a></li>
+                            <li><a class="dropdown-item" href="predict_Teeth.html">Predict Teeth</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-2">
+                    <a href="doctor_Profile.html" class="navbar-icon bi-person smoothscroll"></a>
+                    <img src="../css/images/logout.png" width="28" height="28" id="logoutBtn" style="cursor: pointer;">
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="site-header d-flex flex-column justify-content-center align-items-center">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-5 col-12 mb-5">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../index.html">Homepage</a></li>
+                        </ol>
+                    </nav>
+                    <h2 class="text-white"><br>Dentelligence System</h2>
+                </div>
+                <div class="col-lg-5 col-12">
+                    <div class="topics-detail-block bg-white shadow-lg">
+                        <img src="../css/images/background/image.jpg" class="topics-detail-block-image img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Upload Section -->
+    <br><br><br>
+    <section class="d-flex justify-content-center align-items-center">
+        <div class="col-lg-4 col-md-6 col-12">
+            <div class="custom-block bg-white shadow-lg">
+                <a href="managePatients.html">
+                    <img src="../css/images/background/data.png" style="width: 100%; height: 40%; object-fit: cover;">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prediction Cards -->
+    <section class="explore-section section-padding" id="section_2">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="custom-block bg-white shadow-lg h-100 p-4 rounded text-center">
+                        <a href="predict_age.html" class="text-decoration-none text-dark d-block">
+                            <h5 class="mb-2">Predict Age</h5>
+                            <p class="mb-3">Estimate the user's age from provided data.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="custom-block bg-white shadow-lg h-100 p-4 rounded text-center">
+                        <a href="predict_Disease.html" class="text-decoration-none text-dark d-block">
+                            <h5 class="mb-2">Predict Disease</h5>
+                            <p class="mb-3">Analyze symptoms to suggest possible diseases.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="custom-block bg-white shadow-lg h-100 p-4 rounded text-center">
+                        <a href="predict_gender.html" class="text-decoration-none text-dark d-block">
+                            <h5 class="mb-2">Predict Gender</h5>
+                            <p class="mb-3">Predict user gender based on input data.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="custom-block bg-white shadow-lg h-100 p-4 rounded text-center">
+                        <a href="predict_Teeth.html" class="text-decoration-none text-dark d-block">
+                            <h5 class="mb-2">Predict Teeth</h5>
+                            <p class="mb-3">Analyze dental image or info to give predictions.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <a class="navbar-brand mb-4" href="index_admin.html">
+                    <img src="../css/images/tooth-cleaning.png" width="32" height="32" class="d-inline-block align-text-top">
+                    <span class="ms-2">Aidentify</span>
+                </a>
+                <p class="text-white mb-4">Empowering dental professionals with AI-driven solutions for better patient care and education.</p>
+                <div class="social-links">
+                    <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h6 class="site-footer-title mb-3">Quick Links</h6>
+                <ul class="site-footer-links">
+                    <li><a href="index_doctor.html" class="site-footer-link">Home</a></li>
+                    <li><a href="subscribe_doctor.html" class="site-footer-link">Subscribe</a></li>
+                    <li><a href="predict_age.html" class="site-footer-link">Predict Age</a></li>
+                    <li><a href="predict_Teeth.html" class="site-footer-link">Predict Teeth</a></li>
+                    <li><a href="predict_gender.html" class="site-footer-link">Predict Gender</a></li>
+                    <li><a href="predict_Disease.html" class="site-footer-link">Predict Disease</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h6 class="site-footer-title mb-3">Resources</h6>
+                <ul class="site-footer-links">
+                    <li><a href="#" class="site-footer-link">About Us</a></li>
+                    <li><a href="#" class="site-footer-link">Documentation</a></li>
+                    <li><a href="#" class="site-footer-link">Support</a></li>
+                    <li><a href="#" class="site-footer-link">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h6 class="site-footer-title mb-3">For More Information :</h6>
+                <p class="text-white d-flex">
+                    <a href="../contact.html" class="site-footer-link">Contact Us Here</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-4 border-top">
+            <div class="col-lg-6 col-12">
+                <p class="copyright-text">©2025 Aidentify. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/jquery.sticky.js"></script>
+<script src="../js/click-scroll.js"></script>
+<script src="../js/custom.js"></script>
+ <script type="module">
+        import AuthService from '../js/api/AuthService.js';
+
+        const authService = new AuthService();
+
+        // Handle navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+      
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            try {
+                await authService.logout();
+                window.location.href = '../login.html';
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
