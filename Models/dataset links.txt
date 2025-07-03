@@ -1,0 +1,12 @@
+1)gender:
+https://www.kaggle.com/datasets/wenchik/gender-labelled-panoramic-dental-xray
+
+2)age group:
+https://www.kaggle.com/datasets/truthisneverlinear/childrens-dental-panoramic-radiographs-dataset
+https://www.kaggle.com/datasets/wanmugui/childrens-dental-panoramic-x-ray-dataset?select=CHILDRENS+DENTAL+PANORAMIC+X-RAY+DATASET
+
+3)teeth numbering:
+https://www.kaggle.com/datasets/muhammadmasdar/tooth-numbering
+
+4)diseases:
+https://www.kaggle.com/datasets/reemsalahshehab/dental-datasetv3
